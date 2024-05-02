@@ -1,16 +1,19 @@
-# This is a sample Python script.
+from flask import Flask, jsonify
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+app = Flask(__name__)
 
+activity = dict()
+activity["date"] = "2021-09-01"
+activity["time"] = "morning"
+activity["description"] = "visit the zoo"
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+@app.route('/test')
+def test():
+    return jsonify(activity)
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    app.run(debug=True)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
